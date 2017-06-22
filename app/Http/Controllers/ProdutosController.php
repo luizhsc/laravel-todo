@@ -14,7 +14,12 @@ class ProdutosController extends Controller
      */
    public function index()
     {
-        return "<h1>Lista de Produtos</h1>";
+       $produto = Produtos::all();
+       
+       dd($produtos);
+
+        // load the view and pass the nerds
+        return View::make('produtos.index')->with('produtos', $produtos);
     }
     /**
      * Show the form for creating a new resource.

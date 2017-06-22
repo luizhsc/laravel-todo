@@ -7,3 +7,5 @@ Route::get('/', function () {
 Route::get('/produtos', function () {
     return view('produtos.index');
 });
+
+Route::resource('nerds', 'NerdController');
