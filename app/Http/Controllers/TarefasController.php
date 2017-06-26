@@ -20,11 +20,11 @@ class TarefasController extends Controller
     
     public function store(Request $request)
     {
-        $tarefa = new Pastel;
-        $tarefa->titulo = $request->input('titulo');
-        $tarefa->descricao  = $request->input('descricao');
-
-        $tarefa->save();
+        $tarefa = new Tarefa;        
+		$dataform = $request->all();
+		
+		dd($dataform);
+		
 
         return redirect()->route('tarefas.index');
     }
