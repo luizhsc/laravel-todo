@@ -13,9 +13,7 @@
     @show
     @yield('my_styles')
 </head>
-<body>
-    @include('partials.layout.navbar')
-    @include('partials.layout.errors')
+<body> 
     <div class="container">
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
@@ -33,7 +31,6 @@
             $('#MyTable').dataTable();
         });
     </script>
-
     @yield('my_scripts')
 </body>
 </html>
