@@ -1,10 +1,7 @@
+// app/models/Nerd.php
+
 <?php
 
-namespace App;
-
-use Illuminate\Database\Eloquent\Model;
-
-class Nerd extends \Illuminate\Database\Eloquent
-{
-    //
+class Nerd extends Eloquent {
+    
 }

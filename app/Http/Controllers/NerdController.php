@@ -1,6 +1,10 @@
 <?php
 
-class NerdController extends BaseController {
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class NerdController extends Controller {
 
     /**
      * Display a listing of the resource.
@@ -8,11 +12,9 @@ class NerdController extends BaseController {
      * @return Response
      */
     public function index() {
-        $nerds = Nerd::all();
-
-        // load the view and pass the nerds
-        return View::make('nerds.index')
-                        ->with('nerds', $nerds);
+         $nerds = Nerd::findAll()->paginate(10);
+            return view('products.index',['products' => $products]);
+       
     }
 
     /**

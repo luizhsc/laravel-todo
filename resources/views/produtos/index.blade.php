@@ -30,9 +30,9 @@
                 <button type="button" class="btn btn-success">Adicionar</button>
                 @foreach($produto as $produtos => $value)
                 <tr>
-                    <td>{{ $value->id }}</td>
-                    <td>{{ $value->nome }}</td>
-                    <td>{{ $value->descricao }}</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>teste</td>
                     <td>
                         <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span></a>
                         <a href="#" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></a>
