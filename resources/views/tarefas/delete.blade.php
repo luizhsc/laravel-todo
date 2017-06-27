@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h1>Edit Task - {{ $tarefa->titulo }} </h1>
+<h1>Delete Task - {{ $tarefa->titulo }} </h1>
 <p class="lead">Edit this task below. <a href="{{ route('tarefas.index') }}">Go back to all tasks.</a></p>
 <hr>
 

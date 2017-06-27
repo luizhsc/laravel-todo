@@ -21,9 +21,8 @@ class TarefasController extends Controller
     public function store(Request $request)
     {
 		$input = $request->all();
-        Tarefa::create($input);
-
-		return redirect()->back();
+        Tarefa::create($input);		
+		return redirect()->route('tarefas.index');
     }
     
     
@@ -31,6 +30,7 @@ class TarefasController extends Controller
     {
         $tarefa = Tarefa::find($id);
         return view('tarefas.edit')->with('tarefa',$tarefa);
+		
     }
     
     
@@ -40,13 +40,20 @@ class TarefasController extends Controller
         $tarefa->titulo = $request->input('titulo');
         $tarefa->descricao  = $request->input('descricao');
         $tarefa->save();
-        return redirect()->route('$tarefas.index');
-    }
-    
-    public function destroy($id)
-    {
-        $tarefa = Tarefa::find($id);
-        $tarefa->delete();
         return redirect()->route('tarefas.index');
     }
+    
+    public function destroy(Request $request, $id)
+    {			
+		$tarefa = Tarefa::findOrFail($id);									
+		$tarefa->delete();		
+		return redirect()->route('tarefas.index');
+    }
+	
+	
+	public function show($id)
+	{
+		$tarefa = Tarefa::findOrFail($id);
+		return view('tarefas.show')->withTarefa($tarefa);
+	}
 }
