@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTableTarefas extends Migration
+class CreateTableTasks extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateTableTarefas extends Migration
      */
     public function up()
     {
-        Schema::create('tarefas', function (Blueprint $table) {
+         Schema::create('tasks', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title');
-            $table->string('description');
+            $table->string('titulo');
+            $table->string('descricao');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CreateTableTarefas extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tarefas');
+         Schema::dropIfExists('tasks');
     }
 }

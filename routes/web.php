@@ -7,3 +7,5 @@ Route::get('/', function () {
 
 
 Route::resource('tarefas', 'TarefasController');
+
+Route::resource('tasks', 'TaskController');

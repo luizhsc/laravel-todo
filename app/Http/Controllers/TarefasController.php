@@ -8,9 +8,9 @@ use App\Tarefa;
 class TarefasController extends Controller
 {
     public function index()
-    {
-        $tarefas = Tarefa::get();
-        return view('tarefas.index')->with('tarefas', $tarefas);
+    {       
+		$tasks = Tarefa::all();
+		return view('tarefas.index')->withTarefas($tasks);        
     }
     
     public function create()
@@ -20,13 +20,10 @@ class TarefasController extends Controller
     
     public function store(Request $request)
     {
-        $tarefa = new Tarefa;        
-		$dataform = $request->all();
-		
-		dd($dataform);
-		
+		$input = $request->all();
+        Tarefa::create($input);
 
-        return redirect()->route('tarefas.index');
+		return redirect()->back();
     }
     
     
