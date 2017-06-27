@@ -19,25 +19,25 @@ class TarefasController extends Controller
     }
     
     public function store(Request $request)
-    {
+    {	
 		$input = $request->all();
         Tarefa::create($input);		
-		return redirect()->route('tarefas.index');
+		
+		return redirect()->route('tarefas.index');		
     }
     
     
     public function edit($id)
     {
         $tarefa = Tarefa::find($id);
-        return view('tarefas.edit')->with('tarefa',$tarefa);
-		
+        return view('tarefas.edit')->with('tarefa',$tarefa);		
     }
     
     
     public function update(Request $request, $id)
-    {
+    {	
         $tarefa = Tarefa::find($id);
-        $tarefa->titulo = $request->input('titulo');
+		$tarefa->titulo = $request->input('titulo');
         $tarefa->descricao  = $request->input('descricao');
         $tarefa->save();
         return redirect()->route('tarefas.index');

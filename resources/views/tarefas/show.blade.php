@@ -1,8 +1,6 @@
 @extends('template')
 
 @section('content')
-	<h2>SHOW<h2>
-	
 	<h1>{{ $tarefa->titulo }}</h1>
 	<p class="lead">{{ $tarefa->descricao }}</p>
 	<hr>	
@@ -19,7 +17,6 @@
 				{!! Form::submit('Delete this task?', ['class' => 'btn btn-danger']) !!}
 			{!! Form::close() !!}
 		</div>
-	</div>
-	 
+	</div> 
 
 @stop
