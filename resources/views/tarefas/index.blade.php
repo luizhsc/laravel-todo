@@ -5,14 +5,23 @@
  <div class="container">
  <div class="row">
            <div class="col-md-10 col-md-offset-1">
+		   
 				<h1 class="text-primary">Index</h1>
+				
+				<form action="stationary-add-item" method="POST">
+					<div class="form-group">
+						<input type="text" name="searchname" class="form-control" id="searchname" placeholder="Enter item name">	
+					</div> 
+				</form>
+				
 				<a class="btn btn-success pull-right" href="{{ url('/tarefas/create') }}" role="button">New Task</a>
+				
                 <table class="table">
 					<thead>
 						<tr>
 							<th>Id</th>
 							<th>Title</th>
-							<th>Description</th>								<
+							<th>Description</th>								
 						</tr>
 					</thead>
 					<tbody>

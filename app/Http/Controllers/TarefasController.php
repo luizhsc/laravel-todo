@@ -11,6 +11,7 @@ class TarefasController extends Controller
     {       
 		$tasks = Tarefa::all();
 		return view('tarefas.index')->withTarefas($tasks);        
+		
     }
     
     public function create()
@@ -56,4 +57,17 @@ class TarefasController extends Controller
 		$tarefa = Tarefa::findOrFail($id);
 		return view('tarefas.show')->withTarefa($tarefa);
 	}
+	
+	public function autocomplete(Request $request)
+    {
+        $term=$request->term;
+        $data = stationary::where('item','LIKE','%'.$term.'%')
+        ->take(10)
+        ->get();
+        $results=array();
+        foreach ($data as $key => $v){
+			$result[]=['value' =>$v->item];
+        }
+        return response()->json($results);
+}
 }
