@@ -1,43 +1,45 @@
 <?php
+
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
-use App\Tarefa;
-class TarefasController extends Controller {
-	
+use App\Tag;
+
+class TagsController extends Controller
+{
     public function index() {
-        $tasks = Tarefa::all();
-        return view('tarefas.index')->withTarefas($tasks);
+        $tags = Tag::all();
+        return view('tarefas.index')->withTarefas($tags);
     }
     public function create() {
-        return view('tarefas.create');
+        return view('tags.create');
     }
     public function store(Request $request) {
-        $input = $request->all();
-        Tarefa::create($input);
+        $input = $request->all();		
+        Tag::create($input);
         return redirect()->route('tarefas.index');
     }
     public function edit($id) {
-        $tarefa = Tarefa::find($id);
-        return view('tarefas.edit')->with('tarefa', $tarefa);
+        $tags = Tag::find($id);
+        return view('tags.edit')->with('tags', $tags);
     }
     public function update($id, Request $request) {
-        $tarefa = Tarefa::findOrFail($id);
+        $tags = Tag::findOrFail($id);
         $this->validate($request, [
-            'titulo' => 'required',
-            'descricao' => 'required'
+            'name' => 'required',           
         ]);
         $input = $request->all();
-        $tarefa->fill($input)->save();
+        $tags->fill($input)->save();
         return redirect()->route('tarefas.index');
     }
     public function destroy(Request $request, $id) {
-        $tarefa = Tarefa::findOrFail($id);
-        $tarefa->delete();
+        $tag = Tag::findOrFail($id);
+        $tag->delete();
         return redirect()->route('tarefas.index');
     }
     public function show($id) {
-        $tarefa = Tarefa::findOrFail($id);
-        return view('tarefas.show')->withTarefa($tarefa);
+        $tag = Tag::findOrFail($id);
+        return view('tags.show')->withTarefa($tag);
     }
     public function autocomplete(Request $request) {
         $term = $request->term;

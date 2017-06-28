@@ -17,6 +17,7 @@ class CreateTableTarefas extends Migration
             $table->increments('id');
             $table->string('title');
             $table->string('description');
+			$table->string('tag_name');
             $table->timestamps();
         });
     }

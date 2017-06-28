@@ -8,4 +8,4 @@ Route::get('/', function () {
 
 Route::resource('tarefas', 'TarefasController');
 
-Route::get("/autocomplete",array('as'=>'autocomplete','uses'=> 'TarefasController@autocomplete'));
+Route::resource('tags', 'TagsController');

@@ -1,9 +1,9 @@
 @extends('template')
 
 @section('content')
-	<h1 class="text-primary col-md-10 col-md-offset-1">Create new Task</h1>
+	<h1 class="text-primary col-md-10 col-md-offset-1">Create new Tag</h1>
 	<br>
-	{!! Form::open(array('route' => 'tarefas.store', 'class' => 'form')) !!}
+	{!! Form::open(array('route' => 'tags.store', 'class' => 'form')) !!}
 		@if($errors->any())
 				<div class="alert alert-danger">
 				@foreach($errors->all() as $error)
@@ -13,21 +13,13 @@
 		@endif
 
 		<div class="col-md-10 col-md-offset-1">			
-			{!! Form::text('titulo', null, 
+			{!! Form::text('name', null, 
 				array('required', 
 					  'class'=>'form-control', 
-					  'placeholder'=>'Title')) !!}
+					  'placeholder'=>'Name of Tag')) !!}
 		</div>
 		
-		<br>
-
-		<div class="col-md-10 col-md-offset-1">	
 		<br>		
-			{!! Form::textarea('descricao', null, 
-				array('required', 
-					  'class'=>'form-control', 
-					  'placeholder'=>'Description')) !!}
-		</div>
 		
 		<div class="col-md-10 col-md-offset-1">
 		<br>
