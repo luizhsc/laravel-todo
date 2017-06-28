@@ -15,8 +15,8 @@ class CreateTableTarefas extends Migration
     {
         Schema::create('tarefas', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title');
-            $table->string('description');
+            $table->string('titulo');
+            $table->string('descricao');
             $table->timestamps();
         });
     }
