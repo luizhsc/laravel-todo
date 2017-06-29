@@ -17,7 +17,6 @@ class CreateTableTarefas extends Migration {
 
             $table->string('titulo');
             $table->string('descricao');
-
             $table->string('title');
             $table->string('description');
             $table->string('tag_name');
