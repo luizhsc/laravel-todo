@@ -3,7 +3,7 @@
 @section('content')
 <div class="col-md-10 col-md-offset-1">
 
-    <h1 class="text-primary">Create new Task</h1>
+    <h1 class="text-primary">Create new Tag</h1>
     <hr>
 	
 	
