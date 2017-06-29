@@ -3,7 +3,7 @@
 
 
 <div class="col-md-10 col-md-offset-1">
-    <h1>Edit Task - {{ $tag->nome }} </h1>
+    <h1>Edit Tag - {{ $tag->nome }} </h1>
 		
     <hr>
 

@@ -10,7 +10,15 @@ class TarefasController extends Controller {
 
     public function index() {
         $tasks = Tarefa::all();
-        return view('tarefas.index')->withTarefas($tasks);
+		
+		 //$tags= Tag::pluck('nome');
+		 $tags = Tag::pluck('nome', 'id')->toArray();
+		 
+		 $tags = collect([$tags])->all();
+		 
+
+		
+		return view('tarefas.index')->withTarefas($tasks, $tags);
     }
 
     public function create() {
@@ -25,21 +33,23 @@ class TarefasController extends Controller {
 		
 		
 		$tags= Tag::pluck('nome')
-			->prepend('Select a Tag', '')
+			->prepend('Select a Tag')
 			->toArray();	
-		
 		
         return view('tarefas.create', compact('tags'));
     }
 
     public function store(Request $request) {
         $input = $request->all();
+		
 
 		$this->validate($request, [
             'titulo' => 'required',
             'descricao' => 'required',
 			'tag' => 'required'
         ]);		
+		
+		
 		
         Tarefa::create($input);
         return redirect()->route('tarefas.index');

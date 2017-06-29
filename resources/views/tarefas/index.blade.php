@@ -27,7 +27,7 @@
                         <th>Tag</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody>					
                     @foreach($tarefas as $tarefa)
                     <tr>			
                         <td class="text-left">{{ $tarefa->id }}</td>

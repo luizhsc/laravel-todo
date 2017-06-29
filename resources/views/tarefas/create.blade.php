@@ -23,7 +23,14 @@
     </div>
     
     <div class="form-group">        
-           {!! Form::select('tag', $tags, 'Select Tag', ['class' => 'form-control']) !!}		   
+           <!-- {!! Form::select('tag', $tags, 'Select Tag', ['class' => 'form-control']) !!}-->
+		   
+		    <select name="tag" class="form-control">
+				<option disabled="disabled">Selecionar</option>
+			  @foreach($tags as $tag)
+				<option value="{{ $tag }}">{{$tag}}</option>
+			  @endforeach
+			</select>
     </div>
 
     <div class="form-group">				
