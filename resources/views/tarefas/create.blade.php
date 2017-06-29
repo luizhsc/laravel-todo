@@ -23,9 +23,8 @@
     </div>
     
     <div class="form-group">        
-           {!! Form::select('tag', $tags, null, ['class' => 'form-control']) !!}
+           {!! Form::select('tag', $tags, 'Select Tag', ['class' => 'form-control']) !!}		   
     </div>
-
 
     <div class="form-group">				
         {!! Form::textarea('descricao', null, 

@@ -18,12 +18,28 @@ class TarefasController extends Controller {
         //$tags = Tag::get();        
         //return view('your view', compact('items', $items));
 		
-		$tags= Tag::pluck('nome')->toArray();
+		//$tags= Tag::pluck('nome')->toArray();		
+		
+		//$categories = Category::select('id', 'name')->lists('name', 'id')->prepend('Select a category', '')->toArray();
+		//$tags = Tag::select('nome')->lists('nome')->prepend('Select a category', '')->toArray();
+		
+		
+		$tags= Tag::pluck('nome')
+			->prepend('Select a Tag', '')
+			->toArray();	
+		
+		
         return view('tarefas.create', compact('tags'));
     }
 
     public function store(Request $request) {
-        $input = $request->all();	
+        $input = $request->all();
+
+		$this->validate($request, [
+            'titulo' => 'required',
+            'descricao' => 'required',
+			'tag' => 'required'
+        ]);		
 		
         Tarefa::create($input);
         return redirect()->route('tarefas.index');
@@ -42,7 +58,8 @@ class TarefasController extends Controller {
 
         $this->validate($request, [
             'titulo' => 'required',
-            'descricao' => 'required'
+            'descricao' => 'required',
+			'tag' => 'required'
         ]);
 
         $input = $request->all();
