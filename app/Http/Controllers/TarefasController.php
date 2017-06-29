@@ -15,24 +15,26 @@ class TarefasController extends Controller {
 
     public function create() {
 
-        $tags = Tag::get();
-        //$tags= Tag::pluck('nome')->toArray();
+        //$tags = Tag::get();        
         //return view('your view', compact('items', $items));
-        
+		
+		$tags= Tag::pluck('nome')->toArray();
         return view('tarefas.create', compact('tags'));
     }
 
     public function store(Request $request) {
-        $input = $request->all();
-
+        $input = $request->all();	
+		
         Tarefa::create($input);
-
         return redirect()->route('tarefas.index');
     }
 
     public function edit($id) {
         $tarefa = Tarefa::find($id);
-        return view('tarefas.edit')->with('tarefa', $tarefa);
+		
+		$tags= Tag::pluck('nome')->toArray();
+		
+        return view('tarefas.edit', compact('tags'))->with('tarefa', $tarefa);
     }
 
     public function update($id, Request $request) {

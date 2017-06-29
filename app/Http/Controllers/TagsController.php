@@ -11,10 +11,10 @@ class TagsController extends Controller
 {
     public function index() {
         $tags = Tag::all();
-        return view('tarefas.index')->withTarefas($tags);
+        return view('tags.index')->withTags($tags);
     }
     
-    public function create() {
+    public function create() {		
         return view('tags.create');
     }
     
@@ -22,7 +22,7 @@ class TagsController extends Controller
         $input = $request->all();
         Tag::create($input);
 
-        return redirect()->route('tarefas.index');
+        return redirect()->route('tags.index');
     }
     
     
@@ -40,20 +40,20 @@ class TagsController extends Controller
         ]);
 
         $input = $request->all();
-
-        $tag->fill($input)->save();
-        
-        return redirect()->route('tarefas.index');
+        $tag->fill($input)->save();        
+        return redirect()->route('tags.index');
     }
     
     public function destroy(Request $request, $id) {
         $tag = Tag::findOrFail($id);
         $tag->delete();
-        return redirect()->route('tarefas.index');
+        return redirect()->route('tags.index');
     }
     
     public function show($id) {
+        
         $tag = Tag::findOrFail($id);
-        return view('tags.show')->withTarefa($tag);
+        return view('tags.show')->withTag($tag);
+ 
     }
 }

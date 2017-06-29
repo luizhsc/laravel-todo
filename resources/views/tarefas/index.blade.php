@@ -12,9 +12,12 @@
                 <input type="text" name="searchname" class="form-control" id="searchname" placeholder="Search Tags">	
             </form>
 
-            <a class="btn btn-success pull-right" href="{{ url('/tarefas/create') }}" role="button">New Task</a>
-            <a class="btn btn-success right" href="{{ url('/tags/create') }}" role="button">New Tag</a>
-
+			<a href="{{ route('tags.index') }}" class="btn btn-default pull-left">View Tag</a>                        
+            <a class="btn btn-success pull-right" href="{{ url('/tarefas/create') }}" role="button">New Task</a><br>
+            
+			
+			<hr>
+			
             <table class="table">
                 <thead>
                     <tr>
@@ -29,8 +32,7 @@
                     <tr>			
                         <td class="text-left">{{ $tarefa->id }}</td>
                         <td class="text-left">{{ $tarefa->titulo }}</td>
-                        <td class="text-left">{{ $tarefa->descricao }}</td>
-                        <td class="text-left">{{ $tarefa->descricao }}</td>
+                        <td class="text-left">{{ $tarefa->descricao }}</td>                       
                         <td class="text-left">{{ $tarefa->tag }}</td>
                         <td class="text-left">																
                             <a href="{{ route('tarefas.show', $tarefa->id) }}" class="btn btn-info">View Task</a>

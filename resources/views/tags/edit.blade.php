@@ -4,7 +4,7 @@
 
 <div class="col-md-10 col-md-offset-1">
     <h1>Edit Task - {{ $tag->nome }} </h1>
-    <p class="lead">Edit this task below. <a href="{{ route('tarefas.index') }}">Go back to all tasks.</a></p>
+		
     <hr>
 
     {!! Form::model($tag, ['method' => 'PUT','route' => ['tags.update', $tag->id]]) !!}
@@ -23,10 +23,12 @@
     </div>
 
     <div class="form-group">
+	
+		<a href="{{ route('tags.index') }}" class="btn btn-warning">Back</a>
         {!! Form::submit('Update Tag', ['class' => 'btn btn-primary']) !!}
 
 
-        <a href="{{ route('tarefas.index') }}" class="btn btn-warning">Back</a>
+        
     </div>
 
     {!! Form::close() !!}

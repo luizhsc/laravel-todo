@@ -22,12 +22,8 @@
         'placeholder'=>'Title')) !!}
     </div>
     
-    <div class="form-group">
-        <select class="form-control">
-            @foreach($tags as $item)
-                <option value="{{$item->nome}}">{{$item->nome}}</option>
-            @endforeach
-        </select>
+    <div class="form-group">        
+           {!! Form::select('tag', $tags, null, ['class' => 'form-control']) !!}
     </div>
 
 
@@ -39,9 +35,10 @@
     </div>
 
     <div class="form-group">
+		<a href="{{ route('tarefas.index') }}" class="btn btn-warning">Back</a>
         {!! Form::submit('Save', 
         array('class'=>'btn btn-primary')) !!}
-        <a href="{{ route('tarefas.index') }}" class="btn btn-warning">Back</a>
+        
     </div>
     <div class="form-group">
 

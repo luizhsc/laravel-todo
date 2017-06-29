@@ -21,6 +21,10 @@
         {!! Form::label('titulo', 'Title:', ['class' => 'control-label']) !!}
         {!! Form::text('titulo', null, ['class' => 'form-control']) !!}
     </div>
+	
+	<div class="form-group">        
+           {!! Form::select('tag', $tags, null, ['class' => 'form-control']) !!}
+    </div>
 
     <div class="form-group">
         {!! Form::label('description', 'Description:', ['class' => 'control-label']) !!}

@@ -29,6 +29,6 @@ class CreateTableTarefas extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tarefas');
+        Schema::drop('tarefas');
     }
 }
