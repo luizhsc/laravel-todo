@@ -23,8 +23,8 @@
     </div>
 	
 	<div class="form-group">        
-           <select name="tag" class="form-control">
-				<option disabled="disabled">Selecionar</option>
+			<select name="tag" class="form-control">
+				<option value="">Select Tag</option>
 			  @foreach($tags as $tag)
 				<option value="{{ $tag }}">{{$tag}}</option>
 			  @endforeach
