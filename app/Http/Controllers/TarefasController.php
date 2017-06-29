@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Tarefa;
+use App\Tag;
 
 class TarefasController extends Controller {
 
@@ -13,12 +14,19 @@ class TarefasController extends Controller {
     }
 
     public function create() {
-        return view('tarefas.create');
+
+        $tags = Tag::get();
+        //$tags= Tag::pluck('nome')->toArray();
+        //return view('your view', compact('items', $items));
+        
+        return view('tarefas.create', compact('tags'));
     }
 
     public function store(Request $request) {
         $input = $request->all();
+
         Tarefa::create($input);
+
         return redirect()->route('tarefas.index');
     }
 
@@ -30,27 +38,29 @@ class TarefasController extends Controller {
     public function update($id, Request $request) {
         $tarefa = Tarefa::findOrFail($id);
 
-
         $this->validate($request, [
             'titulo' => 'required',
             'descricao' => 'required'
         ]);
 
-
         $input = $request->all();
-        $tarefa->fill($input)->save();
-        return redirect()->route('tarefas.index');
-    }
 
-    public function show($id) {
-        $tarefa = Tarefa::findOrFail($id);
-        return view('tarefas.show')->withTarefa($tarefa);
+        $tarefa->fill($input)->save();
+
+
+
+        return redirect()->route('tarefas.index');
     }
 
     public function destroy(Request $request, $id) {
         $tarefa = Tarefa::findOrFail($id);
         $tarefa->delete();
         return redirect()->route('tarefas.index');
+    }
+
+    public function show($id) {
+        $tarefa = Tarefa::findOrFail($id);
+        return view('tarefas.show')->withTarefa($tarefa);
     }
 
     public function autocomplete(Request $request) {
@@ -63,6 +73,10 @@ class TarefasController extends Controller {
             $result[] = ['value' => $v->item];
         }
         return response()->json($results);
+    }
+
+    public function getIndex() {
+        
     }
 
 }

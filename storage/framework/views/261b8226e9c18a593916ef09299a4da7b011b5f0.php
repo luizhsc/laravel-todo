@@ -5,6 +5,7 @@
     <br>
     <?php echo Form::open(array('route' => 'tarefas.store', 'class' => 'form')); ?>
 
+
     <?php if($errors->any()): ?>
     <div class="alert alert-danger">
         <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -20,6 +21,15 @@
         'placeholder'=>'Title')); ?>
 
     </div>
+    
+    <div class="form-group">
+        <select class="form-control">
+            <?php $__currentLoopData = $tags; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <option value="<?php echo e($item->nome); ?>"><?php echo e($item->nome); ?></option>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+        </select>
+    </div>
+
 
     <div class="form-group">				
         <?php echo Form::textarea('descricao', null, 
@@ -36,11 +46,11 @@
         <a href="<?php echo e(route('tarefas.index')); ?>" class="btn btn-warning">Back</a>
     </div>
     <div class="form-group">
-        
+
     </div>
-
-
     <?php echo Form::close(); ?>
+
+
 
 
 </div>

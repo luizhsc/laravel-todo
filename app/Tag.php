@@ -6,7 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tag extends Model
 {
-    protected $fillable = [        
-        'name'
+    	/**
+     * Fillable fields
+     * 
+     * @var array
+     */
+    protected $fillable = [
+        'nome',        
     ];
 }

@@ -2,7 +2,6 @@
 
 @section('content')
 
-
 <div class="col-md-10 col-md-offset-1">
     <h1>{{ $tarefa->titulo }}</h1>
     <p>{{ $tarefa->descricao }}</p>
