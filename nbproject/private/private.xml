@@ -3,13 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/blog/routes/web.php</file>
-            <file>file:/C:/xampp/htdocs/blog/resources/views/tarefas/edit.blade.php</file>
-            <file>file:/C:/xampp/htdocs/blog/resources/views/tarefas/create.blade.php</file>
-            <file>file:/C:/xampp/htdocs/blog/app/Http/Controllers/TarefasController.php</file>
-            <file>file:/C:/xampp/htdocs/blog/database/migrations/2017_06_26_154003_create_table_tarefas.php</file>
-            <file>file:/C:/xampp/htdocs/blog/app/Tarefa.php</file>
-            <file>file:/C:/xampp/htdocs/blog/resources/views/tarefas/index.blade.php</file>
+            <file>file:/var/www/blog/resources/views/tarefas/create.blade.php</file>
+            <file>file:/var/www/blog/resources/views/tarefas/show.blade.php</file>
+            <file>file:/var/www/blog/app/Http/Controllers/TarefasController.php</file>
+            <file>file:/var/www/blog/resources/views/tarefas/edit.blade.php</file>
         </group>
     </open-files>
 </project-private>
