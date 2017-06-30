@@ -23,16 +23,7 @@ class TarefasController extends Controller {
 		}elseif ($query > 0){
 				$tasks = Tarefa::where('tag', $search)->get();
 				return view('tarefas.index')->withTarefas($tasks, $tags);		
-		}			
-		
-		
-		
-		
-		
-		
-		
-		
-		
+		}	
 	}
 
     public function index(Request $request) {
