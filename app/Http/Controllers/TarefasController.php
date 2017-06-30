@@ -7,16 +7,42 @@ use App\Tarefa;
 use App\Tag;
 
 class TarefasController extends Controller {
+	
+	public function busca(Request $request) {
+		 
+		$tags = Tag::pluck('nome', 'id')->toArray();		 
+		$tags = collect([$tags])->all();	
+		 
+		$search = \Request::get('search'); //<-- we use global request to get the param of URI 	
+		$query = Tarefa::where('tag', $search)->get()->count();
+		
+		
+		if ($query === 0){
+			$tasks = Tarefa::all();
+			return view('tarefas.index')->withTarefas($tasks, $tags);
+		}elseif ($query > 0){
+				$tasks = Tarefa::where('tag', $search)->get();
+				return view('tarefas.index')->withTarefas($tasks, $tags);		
+		}			
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
 
-    public function index() {
-        $tasks = Tarefa::all();
+    public function index(Request $request) {
+		 $tasks = Tarefa::all();
 		
 		 //$tags= Tag::pluck('nome');
 		 $tags = Tag::pluck('nome', 'id')->toArray();
 		 
-		 $tags = collect([$tags])->all();
-		 
-
+		 $tags = collect([$tags])->all();	 
+		
 		
 		return view('tarefas.index')->withTarefas($tasks, $tags);
     }
@@ -100,8 +126,5 @@ class TarefasController extends Controller {
         return response()->json($results);
     }
 
-    public function getIndex() {
-        
-    }
-
+    
 }
