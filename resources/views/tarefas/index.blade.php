@@ -1,25 +1,21 @@
+
 @extends('template')
+
 
 @section('content')
 
 <div class="container">
     <div class="row">
-        <div class="col-md-10 col-md-offset-1">
+        <div class="col-md-10 col-md-offset-1 ">
 
             <h1 class="text-primary">Index</h1>
 			<br>		
 			
-			<a href="{{ route('tags.index') }}" class="btn btn-default pull-left">View Tag</a>                        
-            <a class="btn btn-success pull-right" href="{{ url('/tarefas/create') }}" role="button">New Task</a><br>
- 
-			<br>
-			<br>
-			
-			<form action="{{ action('TarefasController@busca') }}"method="get">								
-				<input type="text" class="form-control " name="search" placeholder="Search by Tag...">											
+			<form action="{{ action('TarefasController@busca') }}"method="get">					
+				<input type="text" size="30" placeholder="Search by Tag..." class="form-control"  name="search" onkeyup="showResult(this.value)"/>
+                <div id="livesearch"></div>	               									
 				<button class="btn btn-flat btn-primary" type="submit">Search</button>			
-			</form>		
-			
+			</form>					
 					
 			<br>
 			

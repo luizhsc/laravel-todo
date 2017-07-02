@@ -2,17 +2,19 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-10 col-md-offset-1">
+        <div class="col-md-10 col-md-offset-1 ">
 
             <h1 class="text-primary">Index</h1>
-
-            <form action="stationary-add-item" method="POST" >
-                <input type="text" name="searchname" class="form-control" id="searchname" placeholder="Search Tags">	
-            </form>
-
-            <a class="btn btn-success pull-right" href="<?php echo e(url('/tarefas/create')); ?>" role="button">New Task</a>
-            <a class="btn btn-success right" href="<?php echo e(url('/tags/create')); ?>" role="button">New Tag</a>
-
+			<br>		
+			
+			<form action="<?php echo e(action('TarefasController@busca')); ?>"method="get">					
+				<input type="text" size="30" placeholder="Search by Tag..." class="form-control"  name="search" onkeyup="showResult(this.value)"/>
+                <div id="livesearch"></div>	               									
+				<button class="btn btn-flat btn-primary" type="submit">Search</button>			
+			</form>					
+					
+			<br>
+			
             <table class="table">
                 <thead>
                     <tr>
@@ -22,13 +24,12 @@
                         <th>Tag</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody>					
                     <?php $__currentLoopData = $tarefas; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $tarefa): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <tr>			
                         <td class="text-left"><?php echo e($tarefa->id); ?></td>
                         <td class="text-left"><?php echo e($tarefa->titulo); ?></td>
-                        <td class="text-left"><?php echo e($tarefa->descricao); ?></td>
-                        <td class="text-left"><?php echo e($tarefa->descricao); ?></td>
+                        <td class="text-left"><?php echo e($tarefa->descricao); ?></td>                       
                         <td class="text-left"><?php echo e($tarefa->tag); ?></td>
                         <td class="text-left">																
                             <a href="<?php echo e(route('tarefas.show', $tarefa->id)); ?>" class="btn btn-info">View Task</a>

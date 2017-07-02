@@ -22,14 +22,15 @@
 
     </div>
     
-    <div class="form-group">
-        <select class="form-control">
-            <?php $__currentLoopData = $tags; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                <option value="<?php echo e($item->nome); ?>"><?php echo e($item->nome); ?></option>
-            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-        </select>
+    <div class="form-group">        
+           <!-- <?php echo Form::select('tag', $tags, 'Select Tag', ['class' => 'form-control']); ?>-->		   
+		     <select name="tag" class="form-control">
+				<option value="">Select Tag</option>
+			  <?php $__currentLoopData = $tags; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $tag): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+				<option value="<?php echo e($tag); ?>"><?php echo e($tag); ?></option>
+			  <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+			</select>
     </div>
-
 
     <div class="form-group">				
         <?php echo Form::textarea('descricao', null, 
@@ -40,10 +41,11 @@
     </div>
 
     <div class="form-group">
+		<a href="<?php echo e(route('tarefas.index')); ?>" class="btn btn-warning">Back</a>
         <?php echo Form::submit('Save', 
         array('class'=>'btn btn-primary')); ?>
 
-        <a href="<?php echo e(route('tarefas.index')); ?>" class="btn btn-warning">Back</a>
+        
     </div>
     <div class="form-group">
 

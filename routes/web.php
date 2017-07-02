@@ -13,4 +13,7 @@ Route::resource('tags', 'TagsController');
 Route::get("/autocomplete",array('as'=>'autocomplete','uses'=> 'TarefasController@autocomplete'));
 
 
-Route::get('/busca', 'TarefasController@busca');
+Route::get('/search', 'TarefasController@busca');
+
+
+Route::get('/home', 'TarefasController@home');

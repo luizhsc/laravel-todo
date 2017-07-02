@@ -1,12 +1,11 @@
 <?php $__env->startSection('content'); ?>
 
 
-<div class="col-md-10 col-md-offset-1">
+<div class="col-md-10 col-md-offset-1 margin-top">
     <h1>Edit Task - <?php echo e($tarefa->titulo); ?> </h1>
     <p class="lead">Edit this task below. <a href="<?php echo e(route('tarefas.index')); ?>">Go back to all tasks.</a></p>
     <hr>
-
-
+    
     <?php echo Form::model($tarefa, ['method' => 'PUT','route' => ['tarefas.update', $tarefa->id]]); ?>
 
 
@@ -23,6 +22,15 @@
 
         <?php echo Form::text('titulo', null, ['class' => 'form-control']); ?>
 
+    </div>
+	
+	<div class="form-group">        
+			<select name="tag" class="form-control">
+				<option value="">Select Tag</option>
+			  <?php $__currentLoopData = $tags; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $tag): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+				<option value="<?php echo e($tag); ?>"><?php echo e($tag); ?></option>
+			  <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+			</select>
     </div>
 
     <div class="form-group">

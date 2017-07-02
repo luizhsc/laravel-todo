@@ -1,7 +1,7 @@
 @extends('template')
 
 @section('content')
-<div class="col-md-10 col-md-offset-1">
+<div class="col-md-10 col-md-offset-1     margin-top: 75px !important">
 
     <h1 class="text-primary">Create new Tag</h1>
     <hr>

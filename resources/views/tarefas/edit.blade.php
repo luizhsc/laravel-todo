@@ -2,7 +2,7 @@
 @section('content')
 
 
-<div class="col-md-10 col-md-offset-1">
+<div class="col-md-10 col-md-offset-1 margin-top">
     <h1>Edit Task - {{ $tarefa->titulo }} </h1>
     <p class="lead">Edit this task below. <a href="{{ route('tarefas.index') }}">Go back to all tasks.</a></p>
     <hr>

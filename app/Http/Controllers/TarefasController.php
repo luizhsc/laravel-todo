@@ -5,24 +5,30 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Tarefa;
 use App\Tag;
+use DB;
 
 class TarefasController extends Controller {
+
+    public function home(Request $request) {
+        return view('home');
+
+    }
 	
 	public function busca(Request $request) {
 		 
 		$tags = Tag::pluck('nome', 'id')->toArray();		 
 		$tags = collect([$tags])->all();	
 		 
-		$search = \Request::get('search'); //<-- we use global request to get the param of URI 	
-		$query = Tarefa::where('tag', $search)->get()->count();
-		
-		
-		if ($query === 0){
+		//$search = \Request::get('search'); //<-- we use global request to get the param of URI 
+        $search = $request->input('search');   
+	
+		if (strlen($search) === 0){
 			$tasks = Tarefa::all();
 			return view('tarefas.index')->withTarefas($tasks, $tags);
-		}elseif ($query > 0){
-				$tasks = Tarefa::where('tag', $search)->get();
-				return view('tarefas.index')->withTarefas($tasks, $tags);		
+
+		}elseif (strlen($search) > 0){               
+				$tasks = Tarefa::where('tag', 'like', '%'.$search.'%')->get();         
+				return view('search.index')->withTarefas($tasks, $tags);		
 		}	
 	}
 
