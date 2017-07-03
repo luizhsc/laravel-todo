@@ -6,12 +6,12 @@ use Illuminate\Http\Request;
 use App\Tarefa;
 use App\Tag;
 use DB;
+use Illuminate\Support\Str;
 
 class TarefasController extends Controller {
 
     public function home(Request $request) {
         return view('home');
-
     }
 	
 	public function busca(Request $request) {
@@ -33,8 +33,11 @@ class TarefasController extends Controller {
 	}
 
     public function index(Request $request) {
-		 $tasks = Tarefa::all();
-		
+		 $tasks = Tarefa::all();	
+		 
+	
+		 
+			
 		 //$tags= Tag::pluck('nome');
 		 $tags = Tag::pluck('nome', 'id')->toArray();
 		 

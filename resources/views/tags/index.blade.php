@@ -4,7 +4,7 @@
 
 <div class="container">
 
-    <table class="table">
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th class="text-center">Id</th>
