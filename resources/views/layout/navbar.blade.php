@@ -25,12 +25,6 @@
                     <a href="{{ url('/tags/') }}" class="w3-bar-item w3-button">List All</a>
                     <a href="{{ url('/tags/create') }}" class="w3-bar-item w3-button">New</a>       
                 </div>
-            </div>
-
-
-
-            <div class="container">
-                <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Contact</a>
-            </div>
+            </div>            
         </div>
     </div>

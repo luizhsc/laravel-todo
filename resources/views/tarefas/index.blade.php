@@ -3,6 +3,7 @@
 
 @section('content')
 
+
 <div class="container">
 
     <div class="input-group" style="margin-left: 400px">
@@ -34,7 +35,7 @@
                 <td class="text-center">{{ $tarefa->descricao }}</td>                       
                 <td class="text-center">{{ $tarefa->tag }}</td>
                 <td class="text-right">                                                              
-                    <a href="{{ route('tarefas.show', $tarefa->id) }}" class="btn btn-info">View Task</a>
+                    <a href="{{ route('tarefas.show', $tarefa->id) }}" class="btn btn-info">View Detail</a>
                 </td>                               
             </tr>
             @endforeach
