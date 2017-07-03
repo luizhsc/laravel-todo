@@ -1,12 +1,12 @@
-@extends('template')
+@extends('layout.template')
 
 @section('content')
-<div class="col-md-10 col-md-offset-1     margin-top: 75px !important">
+<div class="col-md-10 col-md-offset-1 container">
 
     <h1 class="text-primary">Create new Tag</h1>
     <hr>
-	
-	
+    
+    
     {!! Form::open(array('route' => 'tags.store', 'class' => 'form')) !!}
     @if($errors->any())
     <div class="alert alert-danger">
@@ -22,21 +22,21 @@
         'class'=>'form-control', 
         'placeholder'=>'Name')) !!}
     </div>
-	<hr>
+    <hr>
 
     <div class="form-group">
-		 <a href="{{ route('tarefas.index') }}" class="btn btn-warning">Back</a>
-        {!! Form::submit('Save', 
-        array('class'=>'btn btn-primary')) !!}
-       
-    </div>
+     <a href="{{ route('tarefas.index') }}" class="btn btn-warning">Back</a>
+     {!! Form::submit('Save', 
+     array('class'=>'btn btn-primary')) !!}
+     
+ </div>
 
-	
-    {!! Form::close() !!}
-	
-		
-	
-	
+ 
+ {!! Form::close() !!}
+ 
+ 
+ 
+ 
 
 
 </div>

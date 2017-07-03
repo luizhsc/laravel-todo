@@ -1,9 +1,9 @@
 <?php $__env->startSection('content'); ?>
 
 
-<div class="col-md-10 col-md-offset-1">
-    <h1>Edit Tag - <?php echo e($tag->nome); ?> </h1>
-		
+<div class="col-md-10 col-md-offset-1 container">
+    <h1>Edit Tag: <?php echo e($tag->nome); ?> </h1>
+    
     <hr>
 
     <?php echo Form::model($tag, ['method' => 'PUT','route' => ['tags.update', $tag->id]]); ?>
@@ -24,20 +24,15 @@
 
     </div>
 
-    <div class="form-group">
-	
-		<a href="<?php echo e(route('tags.index')); ?>" class="btn btn-warning">Back</a>
-        <?php echo Form::submit('Update Tag', ['class' => 'btn btn-primary']); ?>
+    <div class="form-group">       
+      <a href="<?php echo e(route('tags.index')); ?>" class="btn btn-warning">Back</a>
+      <?php echo Form::submit('Update Tag', ['class' => 'btn btn-primary']); ?>      
+  </div>
 
-
-
-        
-    </div>
-
-    <?php echo Form::close(); ?>
+  <?php echo Form::close(); ?>
 
 
 
 </div>
 <?php $__env->stopSection(); ?>
-<?php echo $__env->make('template', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php echo $__env->make('layout.template', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

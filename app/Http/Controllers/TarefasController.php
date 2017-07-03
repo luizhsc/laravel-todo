@@ -28,7 +28,7 @@ class TarefasController extends Controller {
 
 		}elseif (strlen($search) > 0){               
 				$tasks = Tarefa::where('tag', 'like', '%'.$search.'%')->get();         
-				return view('search.index')->withTarefas($tasks, $tags);		
+				return view('tarefas.index')->withTarefas($tasks, $tags);		
 		}	
 	}
 

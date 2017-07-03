@@ -1,7 +1,7 @@
-@extends('template')
+@extends('layout.template')
 
 @section('content')
-<div class="col-md-10 col-md-offset-1">
+<div class="col-md-10 col-md-offset-1 container">
 
     <h1 class="text-primary">Create new Task</h1>
     <br>
@@ -23,32 +23,32 @@
     </div>
     
     <div class="form-group">        
-           <!-- {!! Form::select('tag', $tags, 'Select Tag', ['class' => 'form-control']) !!}-->		   
-		     <select name="tag" class="form-control">
-				<option value="">Select Tag</option>
-			  @foreach($tags as $tag)
-				<option value="{{ $tag }}">{{$tag}}</option>
-			  @endforeach
-			</select>
-    </div>
+     <!-- {!! Form::select('tag', $tags, 'Select Tag', ['class' => 'form-control']) !!}-->		   
+     <select name="tag" class="form-control">
+        <option value="">Select Tag</option>
+        @foreach($tags as $tag)
+        <option value="{{ $tag }}">{{$tag}}</option>
+        @endforeach
+    </select>
+</div>
 
-    <div class="form-group">				
-        {!! Form::textarea('descricao', null, 
-        array('required', 
-        'class'=>'form-control', 
-        'placeholder'=>'Description')) !!}
-    </div>
+<div class="form-group">				
+    {!! Form::textarea('descricao', null, 
+    array('required', 
+    'class'=>'form-control', 
+    'placeholder'=>'Description')) !!}
+</div>
 
-    <div class="form-group">
-		<a href="{{ route('tarefas.index') }}" class="btn btn-warning">Back</a>
-        {!! Form::submit('Save', 
-        array('class'=>'btn btn-primary')) !!}
-        
-    </div>
-    <div class="form-group">
+<div class="form-group">
+  <a href="{{ route('tarefas.index') }}" class="btn btn-warning">Back</a>
+  {!! Form::submit('Save', 
+  array('class'=>'btn btn-primary')) !!}
+  
+</div>
+<div class="form-group">
 
-    </div>
-    {!! Form::close() !!}
+</div>
+{!! Form::close() !!}
 
 
 
