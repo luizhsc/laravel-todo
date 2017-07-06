@@ -1,7 +1,7 @@
-
-<table style="width:100%">
-Directories                                        	7
-Files                                               	23
+Directories
+7
+Files
+23
 	
 Size	
   Lines of Code (LOC)                              	858
