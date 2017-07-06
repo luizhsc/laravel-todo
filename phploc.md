@@ -1,3 +1,5 @@
+
+<table style="width:100%">
 Directories                                        	7
 Files                                               	23
 	
@@ -58,3 +60,4 @@ Structure
   Constants                                          	0
     Global Constants                               	0 (0.00%)
     Class Constants                              	0 (0.00%)
+ </table>
