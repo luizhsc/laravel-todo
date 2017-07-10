@@ -16,3 +16,9 @@ Route::get('/search', 'TarefasController@busca');
 
 
 Route::get('/home', 'TarefasController@home');
+
+
+// CATCH ALL ROUTE =============================  
+App::missing(function($exception) { 
+    return View::make('home'); 
+});
