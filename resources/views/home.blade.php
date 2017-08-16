@@ -1,6 +1,5 @@
 <meta charset="UTF-8">
-<meta charset="utf-8">
-<title>To Do - List</title>
+<title>Simple ToDo</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
@@ -13,11 +12,10 @@
 
 <!-- !PAGE CONTENT! -->
 <div class="w3-content" style="max-width:1500px">
-
     <!-- Header -->
-    <header class="w3-panel w3-center w3-opacity" style="padding:128px 16px">
-        <h1 class="w3-xlarge">ToDO</h1>
-        <h1>List</h1>
+    <header class="w3-panel w3-center w3-opacity" style="padding:128px 16px">		
+        <h1 class="w3-xlarge">Simple</h1>
+        <h1>ToDo List</h1>		
 
         <div class="w3-padding-32">
             <div class="w3-bar w3-border">
@@ -28,7 +26,6 @@
                         <a href="{{ url('/tarefas/create') }}" class="w3-bar-item w3-button">New</a>       
                     </div>
                 </div>
-
                 <div class="w3-dropdown-hover w3-hide-small">
                     <button class="w3-padding-large w3-button" title="More">Tag <i class="fa fa-caret-down"></i></button>     
                     <div class="w3-dropdown-content w3-bar-block w3-card-4">
@@ -39,3 +36,4 @@
             </div>
         </div>
     </header>
+</div>
