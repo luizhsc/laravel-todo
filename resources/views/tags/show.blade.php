@@ -12,8 +12,8 @@
 
     <div class="pull-right">        
         {!! Form::open([
-            'method' => 'DELETE',
-            'route' => ['tags.destroy', $tag->id]
+        'method' => 'DELETE',
+        'route' => ['tags.destroy', $tag->id]
         ]) !!}
         {!! Form::submit('Delete this tag?', ['class' => 'btn btn-danger']) !!}
         {!! Form::close() !!}        

@@ -15,9 +15,11 @@ class TarefasController extends Controller {
     }
 
     public function busca(Request $request) {
+
         $tags = Tag::pluck('nome', 'id')->toArray();
         $tags = collect([$tags])->all();
 
+        //$search = \Request::get('search'); //<-- we use global request to get the param of URI 
         $search = $request->input('search');
 
         if (strlen($search) === 0) {
@@ -31,15 +33,27 @@ class TarefasController extends Controller {
 
     public function index(Request $request) {
         $tasks = Tarefa::all();
-        
+
+        //$tags= Tag::pluck('nome');
         $tags = Tag::pluck('nome', 'id')->toArray();
+
         $tags = collect([$tags])->all();
+
 
         return view('tarefas.index')->withTarefas($tasks, $tags);
     }
 
-    public function create() {       
-        $tags = Tag::pluck('nome')->toArray();
+    public function create() {
+
+        //$tags = Tag::get();        
+        //return view('your view', compact('items', $items));
+        //$tags= Tag::pluck('nome')->toArray();		
+        //$categories = Category::select('id', 'name')->lists('name', 'id')->prepend('Select a category', '')->toArray();
+        //$tags = Tag::select('nome')->lists('nome')->prepend('Select a category', '')->toArray();
+
+
+        $tags = Tag::pluck('nome')
+                ->toArray();
 
         return view('tarefas.create', compact('tags'));
     }
@@ -91,4 +105,17 @@ class TarefasController extends Controller {
         $tarefa = Tarefa::findOrFail($id);
         return view('tarefas.show')->withTarefa($tarefa);
     }
+
+    public function autocomplete(Request $request) {
+        $term = $request->term;
+        $data = stationary::where('item', 'LIKE', '%' . $term . '%')
+                ->take(10)
+                ->get();
+        $results = array();
+        foreach ($data as $key => $v) {
+            $result[] = ['value' => $v->item];
+        }
+        return response()->json($results);
+    }
+
 }
