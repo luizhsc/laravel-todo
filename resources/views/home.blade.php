@@ -1,6 +1,5 @@
 <meta charset="UTF-8">
-<meta charset="utf-8">
-<title>To Do - List</title>
+<title>Simple ToDo</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
@@ -16,7 +15,7 @@
 
     <!-- Header -->
     <header class="w3-panel w3-center w3-opacity" style="padding:128px 16px">
-        <h1 class="w3-xlarge">ToDO</h1>
+        <h1 class="w3-xlarge">Simple ToDo</h1>
         <h1>List</h1>
 
         <div class="w3-padding-32">
