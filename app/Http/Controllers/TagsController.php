@@ -19,6 +19,12 @@ class TagsController extends Controller {
 
     public function store(Request $request) {
         $input = $request->all();
+
+        $this->validate($request, [
+            'nome' => 'unique:tags'          
+         
+        ]);
+
         Tag::create($input);
 
         return redirect()->route('tags.index');
