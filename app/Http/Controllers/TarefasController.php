@@ -44,14 +44,6 @@ class TarefasController extends Controller {
     }
 
     public function create() {
-
-        //$tags = Tag::get();        
-        //return view('your view', compact('items', $items));
-        //$tags= Tag::pluck('nome')->toArray();		
-        //$categories = Category::select('id', 'name')->lists('name', 'id')->prepend('Select a category', '')->toArray();
-        //$tags = Tag::select('nome')->lists('nome')->prepend('Select a category', '')->toArray();
-
-
         $tags = Tag::pluck('nome')
                 ->toArray();
 
@@ -90,10 +82,10 @@ class TarefasController extends Controller {
 
         $input = $request->all();
 
-        $tarefa->fill($input)->save();
+        $tarefa->fill($input)->save();        
 
         return redirect()->route('tarefas.index');
-    }
+    }   
 
     public function destroy(Request $request, $id) {
         $tarefa = Tarefa::findOrFail($id);

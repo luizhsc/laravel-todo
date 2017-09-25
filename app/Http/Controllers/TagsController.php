@@ -21,8 +21,7 @@ class TagsController extends Controller {
         $input = $request->all();
 
         $this->validate($request, [
-            'nome' => 'unique:tags'          
-         
+            'nome' => 'unique:tags'    
         ]);
 
         Tag::create($input);
