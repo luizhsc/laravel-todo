@@ -4,6 +4,10 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::get('/login', function () {
+    return view('login.login');
+});
+
 
 Route::resource('tarefas', 'TarefasController');
 
