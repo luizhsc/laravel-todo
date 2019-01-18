@@ -1,5 +1,4 @@
 @extends('layout.template')
-
 @section('content')
 
 
@@ -29,7 +28,6 @@
     </div>
 
     {!! Form::close() !!}
-
-
+    
 </div>
 @stop

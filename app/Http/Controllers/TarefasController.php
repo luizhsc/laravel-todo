@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Tarefa;
 use App\Tag;
-use DB;
-use Illuminate\Support\Str;
 
 class TarefasController extends Controller {
 
@@ -15,11 +13,9 @@ class TarefasController extends Controller {
     }
 
     public function busca(Request $request) {
-
         $tags = Tag::pluck('nome', 'id')->toArray();
         $tags = collect([$tags])->all();
-
-        //$search = \Request::get('search'); //<-- we use global request to get the param of URI 
+         
         $search = $request->input('search');
 
         if (strlen($search) === 0) {
@@ -32,27 +28,22 @@ class TarefasController extends Controller {
     }
 
     public function index(Request $request) {
-        $tasks = Tarefa::all();
-
-        //$tags= Tag::pluck('nome');
+        $tasks = Tarefa::all();        
         $tags = Tag::pluck('nome', 'id')->toArray();
-
         $tags = collect([$tags])->all();
-
 
         return view('tarefas.index')->withTarefas($tasks, $tags);
     }
 
     public function create() {
-        $tags = Tag::pluck('nome')
-                ->toArray();
+        $tags = Tag::pluck('nome')->toArray();
 
         return view('tarefas.create', compact('tags'));
     }
 
     public function store(Request $request) {
         $input = $request->all();
-
+        
         $this->validate($request, [
             'titulo' => 'required',
             'descricao' => 'required|max:200',
@@ -60,6 +51,7 @@ class TarefasController extends Controller {
         ]);
 
         Tarefa::create($input);
+        
         return redirect()->route('tarefas.index');
     }
 
@@ -90,11 +82,13 @@ class TarefasController extends Controller {
     public function destroy(Request $request, $id) {
         $tarefa = Tarefa::findOrFail($id);
         $tarefa->delete();
+        
         return redirect()->route('tarefas.index');
     }
 
     public function show($id) {
         $tarefa = Tarefa::findOrFail($id);
+        
         return view('tarefas.show')->withTarefa($tarefa);
     }   
 
